@@ -18,18 +18,16 @@ int valid_int_input(string prompt){
 }
 
 // Hack for handling polish characters
-int test_length(int target_length, string generated_nickname){
-	int corrected_length = target_length;
+int test_length(int length, string generated_nickname){
 	bool if_valid;
-	for (int i = 0; i < target_length; i++){
+	for (int i = 0; i < length; i++){
 		if_valid = utf8::is_valid(generated_nickname.begin()+i, generated_nickname.begin()+i+1);
 		if (!if_valid){
-			corrected_length++,
-			target_length++,
+			length++,
 			i++;
 		}
 	}
-	return corrected_length;
+	return length;
 }
 
 
